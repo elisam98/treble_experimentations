@@ -9,7 +9,7 @@ for project in $(cd $patches/patches; echo *);do
 	cd /home/cornbeefonrye/kosheros
 	p="$(tr _ / <<<$project |sed -e 's;platform/;;g')"
 	[ "$p" == build ] && p=build/make
-	repo sync -l --force-sync $p
+	repo sync -l --force-sync $p || continue
 	pushd $p
 	git clean -fdx; git reset --hard
 	for patch in $patches/patches/$project/*.patch;do
