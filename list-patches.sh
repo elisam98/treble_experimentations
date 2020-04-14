@@ -1,9 +1,11 @@
 #!/bin/bash
 
+cd /home/cornbeefonrye/kosheros
+
 if [ -z "$REPO_REMOTE" ];then
 	rm -Rf patches patches.zip
 	TOP=$PWD repo forall -c "bash $(readlink -f -- $0)"
-	zip -r patches.zip patches
+	zip -r /home/cornbeefonrye/kosheros/patches.zip . -i /home/cornbeefonrye/kosheros/patches
 	rm -Rf patches
 	exit $?
 fi

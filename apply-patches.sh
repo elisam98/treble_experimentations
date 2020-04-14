@@ -5,6 +5,8 @@ set -e
 patches="$(readlink -f -- $1)"
 
 for project in $(cd $patches/patches; echo *);do
+	echo $project
+	cd /home/cornbeefonrye/kosheros
 	p="$(tr _ / <<<$project |sed -e 's;platform/;;g')"
 	[ "$p" == build ] && p=build/make
 	repo sync -l --force-sync $p
